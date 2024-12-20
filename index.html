@@ -14,75 +14,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/katex.min.css" integrity="sha384-Htz9HMhiwV8GuQ28Xr9pEs1B4qJiYu/nYLLwlDklR53QibDfmQzi7rYxXhMH/5/u" crossorigin="anonymous">
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/katex.min.js" integrity="sha384-bxmi2jLGCvnsEqMuYLKE/KsVCxV3PqmKeK6Y6+lmNXBry6+luFkEOsmp5vD9I/7+" crossorigin="anonymous"></script>
 
-    <script>
-        // console.log({'string': emscramble.string, 'indices': emscramble.indices.toString()})
-        // also used by https://www.cs.cmu.edu/~dpathak/
-
-        // scramble.js
-        //
-        // 2011, Jeff Donahue (http://jeffdonahue.com/).
-        // license: you can use this if you want to i guess
-
-        function scrambledString(tag, objName, initScrambledString, initScrambledStringIndices) {
-            this.tag = tag;
-            this.objName = objName;
-            this.string = initScrambledString;
-            this.indices = initScrambledStringIndices;
-            this.rescramble = rescramble;
-            this.initAnimatedBubbleSort = initAnimatedBubbleSort;
-            this.bubbleSortStep = bubbleSortStep;
-            this.bubbleSortBookmark = 0;
-
-            this.rescramble();
-            this.tag.innerHTML = this.string + ' <a href="#" onClick="' + this.objName + '.initAnimatedBubbleSort();return false;">unscramble</a>';
-        }
-
-        function rescramble() {
-            for (i = 0; i < this.indices.length; i++) {
-                indexToMove = Math.floor(Math.random() * (this.indices.length - i));
-                charIndexRemoved = this.indices.splice(indexToMove, 1);
-                this.indices = this.indices.concat(charIndexRemoved);
-                scrambledStringTemp = this.string.substring(0, indexToMove) +
-                    this.string.substring(indexToMove + 1) +
-                    this.string.substring(indexToMove, indexToMove + 1);
-                this.string = scrambledStringTemp;
-            }
-        }
-
-        function initAnimatedBubbleSort() {
-            this.interval = setInterval(this.objName + '.bubbleSortStep()', 2);
-        }
-
-        function bubbleSortStep() {
-            if (this.bubbleSortBookmark >= this.indices.length - 1) {
-                this.bubbleSortBookmark = 0;
-            }
-            for (i = this.bubbleSortBookmark; i < this.indices.length - 1; i++) {
-                if (i == 0) {
-                    this.changed = 0;
-                }
-                if (this.indices[i] > this.indices[i + 1]) {
-                    this.changed = 1;
-                    tempIndex = this.indices[i];
-                    this.indices[i] = this.indices[i + 1];
-                    this.indices[i + 1] = tempIndex;
-                    tempArrange = this.string.substring(0, i) +
-                        this.string.substring(i + 1, i + 2) +
-                        this.string.substring(i, i + 1) +
-                        this.string.substring(i + 2);
-                    this.string = tempArrange;
-                    this.tag.innerHTML = this.string;
-                    this.bubbleSortBookmark = i;
-                    break;
-                }
-            }
-            this.bubbleSortBookmark = i;
-            if (!this.changed) {
-                clearInterval(this.interval);
-            }
-        }
-    </script>
-
     <!--
         Colors chosen from https://personal.sron.nl/~pault/data/colourschemes.pdf,
         after seeing https://twitter.com/andrewkuznet/status/1433129701476732929.
@@ -190,18 +121,6 @@
             color: var(--darkgray);
         }
 
-        .menu {
-            /* margin-right: 5%; */
-        }
-
-        .nav {
-            float: right;
-        }
-
-        .nav > a:not(:last-child) {
-            margin-right: 20px;
-        }
-
         .site-name {
             text-align: center;
             font-weight: 500;
@@ -286,80 +205,6 @@
             font-size: 1.6rem;
         }
 
-        .indent {
-            padding-left: 1.8rem;
-        }
-
-        .profile-img {
-            float: right;
-            padding: 20px 20px 20px 20px;
-            width: 25%;
-        }
-
-        .profile-img > img {
-            box-shadow: var(--shadow);
-            -moz-box-shadow: var(--shadow);
-            -webkit-box-shadow: var(--shadow);
-        }
-
-        .accounts-list {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .accounts-list > li {
-            list-style-type: none;
-            align-items: center;
-        }
-
-        .accounts-list > li > svg {
-            display: inline-block;
-            vertical-align: middle;
-            margin-right: 4px;
-        }
-
-        .bio {
-        }
-
-        .bio > p {
-            display: inline-block;
-            margin: 0;
-            padding: 0;
-        }
-
-        .bio > p:not(:last-child) {
-            margin-bottom: 0.67rem;
-        }
-
-        /*
-            Not good enough right now
-            https://maxwellforbes.com/posts/web-justified-text
-            http://clagnut.com/blog/2395/
-        */
-        .justify {
-            /* text-align: justify;
-            text-justify: inter-word; */
-        }
-
-        .research-tag {
-            font-weight: 500;
-        }
-
-        .news-container {
-        }
-
-        .news-date {
-            color: var(--red);
-            font-weight: 500;
-            width: 10%;
-            min-width: 100px;
-        }
-
-        .news-date, .news-date + div {
-            display: inline-block;
-        }
-
         .codebox-pre {
             border: none;
             background-color: #fafafa !important;
@@ -373,54 +218,6 @@
 
         pre code {
            white-space: pre;
-        }
-
-        .pub {
-            overflow: hidden;
-            margin-bottom: 20px;
-        }
-
-        .pub-visual {
-            float: left;
-            margin: 5px 20px 10px 5px;
-            width: 33%;
-            /* min-height: 10rem; */
-            background-color: white !important;
-            box-shadow: var(--shadow);
-            -moz-box-shadow: var(--shadow);
-            -webkit-box-shadow: var(--shadow);
-        }
-
-        .pub-info {
-            font-size: 1.6rem;
-            display: table-cell; /* equal height as pub-visual, prevent from overflowing */
-            padding-top: 5px;
-        }
-
-        .pub-title {
-            font-weight: 500;
-            font-size: 1.8rem;
-            line-height: 2.2rem;
-            padding-bottom: 5px;
-        }
-
-        .pub-booktitle > p {
-            /* opacity: 0.6; */
-            color: var(--darkgray);
-        }
-
-        .pub-links {
-            margin-top: 10px;
-            font-family: var(--monofont);
-            font-size: 1.4rem;
-        }
-
-        .pub-highlight {
-            background-color: var(--red);
-            color: white;
-            padding: 0 3px 2px 3px;
-            font-style: normal !important;
-            border-radius: 0.05em;
         }
 
         /* 
@@ -447,23 +244,6 @@
             .container {
                 max-width: 850px;
             }
-
-            .pub-visual {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                /* height: 18rem; */
-            }
-
-            .pub-visual > img {
-                display: block;
-                max-width: 100%;
-                max-height: 100%;
-                max-height: 16rem;
-                width: auto;
-                height: auto;
-                object-fit: contain;
-            }
         }
 
         @media only screen and (max-width: 640px) and (min-width: 319px){
@@ -474,49 +254,6 @@
             .site-name {
                 font-size: 2.6rem;
                 max-width: 300px;
-            }
-
-            .pub-visual, .pub-info {
-                float: none;
-                padding: 10px 5px 10px 0;
-                width: 100%;
-            }
-
-            .pub-visual {
-                width: 94% !important;
-            }
-            .pub-visual > img {
-                height: auto;
-                width: 75%;
-            }
-
-            /* photo does not have white background, so fit to fill */
-            .photo {
-                padding: 0 !important;
-            }
-            .photo > img {
-                width: 100% !important;
-            }
-
-            .about-container {
-                text-align: center;
-                overflow: unset;
-            }
-
-            .accounts-list {
-                width: 60%;
-                min-height: 100px;
-            }
-
-            .news-date, .news-date + div {
-                display: block;
-            }
-
-            .profile-img {
-                display: inline-block;
-                right: 5px;
-                max-height: 75px;
-                margin-top: -2.0rem;
             }
         }
     </style>
