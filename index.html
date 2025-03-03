@@ -62,7 +62,7 @@
             line-height: 1.5;
             color: var(--black);
             /* background-color: rgb(250, 250, 250); */
-            background-color: var(--milk);
+            background-color: var(--white);
             /* font-family: 'Open Sans', sans-serif; */
             font-family: var(--systemfont);
             -moz-osx-font-smoothing: grayscale;
@@ -193,16 +193,23 @@
             font-family: "KaTeX_SansSerif", var(--systemfont);
         }
 
+        .caption {
+            text-align: center;
+        }
+
+        .alg-caption {
+            text-align: center;
+            font-weight: 200;
+            font-size: 1.75rem;
+            font-family: "KaTeX_SansSerif", var(--systemfont);
+        }
+
         .icon-buttons {
             display: flex;
             justify-content: center;
             gap: 0.5em 1em;
             flex-wrap: wrap;
             vertical-align: baseline;
-        }
-
-        .icon-buttons > a {
-            font-size: 1.6rem;
         }
 
         .codebox-pre {
@@ -238,6 +245,93 @@
             width: 1px;
             white-space: nowrap;
             user-select: none;
+        }
+
+        /* container from https://robo-pack.github.io/ */
+
+        /* Slideshow container */
+        .slideshow-container {
+            position: relative;
+            margin: auto;
+            padding-top: 10px;
+        }
+
+        .slide {
+            display: none;
+            margin-right: 42px; 
+            margin-left: 42px; 
+        }
+
+        .slide > div {
+            text-align: center;
+            font-weight: 200;
+            font-size: 2.0rem;
+            font-family: "KaTeX_SansSerif", var(--systemfont);
+        }
+
+        .slide-content {
+            display: flex;
+            flex-grow: 1;
+            align-items: center;
+        }
+
+        .comparison-video {
+            margin-left: 1%;
+            margin-right: 1%;
+            margin-bottom: 8%
+        }
+
+        .comparison-video > div {
+            font-weight: 500;
+            font-size: 1.5rem;
+            font-family: "KaTeX_SansSerif", var(--systemfont);
+        }
+
+        /* Next & previous buttons */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            margin-top: -22px;
+            padding: 16px;
+            color: black;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            user-select: none;
+        }
+
+        /* Position the "next button" to the right */
+        .next {
+            right: 0;
+        }
+        
+        .prev {
+            left: 0;
+        }
+
+        /* On hover, add a black background color with a little bit see-through */
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            background-size: 0%;
+        }
+
+        /* The dots/bullets/indicators */
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active, .dot:hover {
+            background-color: #717171;
         }
 
         @media only screen and (min-width: 992px) {
@@ -299,11 +393,10 @@
                         <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0"></path>
                         <path d="M3 6l0 13"></path> <path d="M12 6l0 13"></path> <path d="M21 6l0 13"></path>
                     </svg>
-                    <!-- <span class="screenreader">arXiv</span>&emsp; arXiv -->
                     <span class="screenreader">paper</span>&emsp; paper
                 </button>
             </a>
-            <!-- <a href="#" target="_blank" style="background-image: unset !important">
+            <a href="https://github.com/rewarped/rewarped" target="_blank" style="background-image: unset !important">
                 <button>
                     <svg aria-hidden="true" height="20" width="20" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" viewBox="0 0 24 24" stroke-width="1.6" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -311,8 +404,8 @@
                     </svg>
                     <span class="screenreader">code</span>&emsp; code
                 </button>
-            </a> -->
-            <!-- <a href="#" target="_blank" style="background-image: unset !important">
+            </a>
+            <a href="#" target="_blank" style="background-image: unset !important">
                 <button>
                     <svg aria-hidden="true" height="20" width="20" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" viewBox="0 0 24 24" stroke-width="1.6" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -320,7 +413,17 @@
                     </svg>
                     <span class="screenreader">tweet</span>&emsp; tweet
                 </button>
-            </a> -->
+            </a>
+            <a href="https://openreview.net/forum?id=DRiLWb8bJg" target="_blank" style="background-image: unset !important">
+                <button>
+                    <svg aria-hidden="true" height="20" width="20" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" viewBox="0 0 24 24" stroke-width="1.6" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 4m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z"></path>
+                        <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10"></path>
+                        <path d="M10 12l4 0"></path>
+                    </svg>
+                    <span class="screenreader">openreview</span>&emsp; openreview
+                </button>
+            </a>
         </div>
 
         <br />
@@ -373,9 +476,356 @@
                     <source src="assets/videos/sapo_fluidtransport.mp4" type="video/mp4">
                 </video>
             </div>
-            <div>
+            <div class="caption">
                 <b>Figure.</b> Visualizations of trajectories from policies learned by SAPO in Rewarped tasks.
             </div>
+        </div>
+    </div>
+
+        <h2>Soft Analytic Policy Optimization (SAPO)</h2>
+        <div>
+            We observe that existing FO-MBRL algorithms are prone to suboptimal convergence to local minima in the reward landscape. We draw on the maximum entropy RL framework to formulate Soft Analytic Policy Optimization (SAPO), a maximum entropy FO-MBRL algorithm. 
+        </div>
+
+        <div class="slide-content">
+            <div class="column">
+                <img src="assets/images/surface_ant_bptt.png">
+                <div class="alg-caption">APG</div>
+            </div>
+            <div class="column">
+                <img src="assets/images/surface_ant_SHAC.png">
+                <div class="alg-caption">SHAC</div>
+            </div>
+            <div class="column">
+                <img src="assets/images/surface_ant_SAPO.png">
+                <div class="alg-caption">SAPO</div>
+            </div>
+        </div>
+
+        <div class="caption">
+            <b>Figure.</b> Loss surface comparison between algorithms – DFlex Ant.
+        </div>
+
+        <div class="slide-content">
+            <div class="column">
+                <img src="assets/images/surface_flip_bptt.png">
+                <div class="alg-caption">APG</div>
+            </div>
+            <div class="column">
+                <img src="assets/images/surface_flip_SHAC.png">
+                <div class="alg-caption">SHAC</div>
+            </div>
+            <div class="column">
+                <img src="assets/images/surface_flip_SAPO.png">
+                <div class="alg-caption">SAPO</div>
+            </div>
+        </div>
+
+        <div class="caption">
+            <b>Figure.</b> Loss surface comparison between algorithms – Rewarped HandFlip.
+        </div>
+
+
+        <div>
+            <img src="assets/images/sapo_diagram.png">
+        </div>
+        <div class="caption">
+            <b>Figure.</b> Computation graph of Soft Analytic Policy Optimization
+        </div>
+
+        <h2>Rewarped</h2>
+        <div>
+            We introduce Rewarped, a parallel differentiable multiphysics simulation platform that provides GPU-accelerated parallel environments for RL and enables computing batched simulation gradients efficiently.
+        </div>
+
+        <br/>
+
+        <div>
+            We implement all simulation code in NVIDIA Warp, a library for differentiable programming that converts Python code into CUDA kernels by runtime JIT compilation. We use gradient checkpointing and CUDA graphs to reduce memory requirements and compute batched simulation gradients over multiple time steps efficiently.
+        </div>
+
+
+
+
+
+        <h2>Results</h2>
+        <div>
+            <img src="assets/images/rewarped_train.png">
+        </div>
+        <br/>
+        <div>
+            We compare SAPO, our proposed maximum entropy FO-MBRL algorithm, against baselines on a range of challenging manipulation and locomotion tasks that involve rigid and soft bodies. SAPO shows better training stability across different random seeds, against existing FO-MBRL algorithms APG and SHAC.
+        </div>
+
+        <div class="slideshow-container">
+            <div class="slide fade">
+                <div>AntRun</div>
+                <div class="slide-content">
+                    <div class="column">
+                        <div class="comparison-video">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                                <source src="assets/videos/sapo_ant.mp4" type="video/mp4">
+                            </video>
+                            <div>SAPO (ours)</div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="comparison-video">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                                <source src="assets/videos/sapo_ant.mp4" type="video/mp4">
+                            </video>
+                            <div>SAC</div>
+                        </div>
+                        <div class="comparison-video">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                                <source src="assets/videos/sapo_ant.mp4" type="video/mp4">
+                            </video>
+                            <div>SHAC</div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="comparison-video">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                                <source src="assets/videos/sapo_ant.mp4" type="video/mp4">
+                            </video>
+                            <div>PPO</div>
+                        </div>
+                        <div class="comparison-video">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                                <source src="assets/videos/sapo_ant.mp4" type="video/mp4">
+                            </video>
+                            <div>APG</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide fade">
+                <div>HandReorient</div>
+                <div class="slide-content">
+                    <div class="column">
+                        <div class="comparison-video">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                                <source src="assets/videos/sapo_handreorient.mp4" type="video/mp4">
+                            </video>
+                            <div>SAPO (ours)</div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="comparison-video">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                                <source src="assets/videos/sapo_handreorient.mp4" type="video/mp4">
+                            </video>
+                            <div>SAC</div>
+                        </div>
+                        <div class="comparison-video">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                                <source src="assets/videos/sapo_handreorient.mp4" type="video/mp4">
+                            </video>
+                            <div>SHAC</div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="comparison-video">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                                <source src="assets/videos/sapo_handreorient.mp4" type="video/mp4">
+                            </video>
+                            <div>PPO</div>
+                        </div>
+                        <div class="comparison-video">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                                <source src="assets/videos/sapo_handreorient.mp4" type="video/mp4">
+                            </video>
+                            <div>APG</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide fade">
+                <div>RollingFlat</div>
+                <div class="slide-content">
+                    <div class="column">
+                        <div class="comparison-video">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                                <source src="assets/videos/sapo_rollingflat.mp4" type="video/mp4">
+                            </video>
+                            <div>SAPO (ours)</div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="comparison-video">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                                <source src="assets/videos/sapo_rollingflat.mp4" type="video/mp4">
+                            </video>
+                            <div>SAC</div>
+                        </div>
+                        <div class="comparison-video">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                                <source src="assets/videos/sapo_rollingflat.mp4" type="video/mp4">
+                            </video>
+                            <div>SHAC</div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="comparison-video">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                                <source src="assets/videos/sapo_rollingflat.mp4" type="video/mp4">
+                            </video>
+                            <div>PPO</div>
+                        </div>
+                        <div class="comparison-video">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                                <source src="assets/videos/sapo_rollingflat.mp4" type="video/mp4">
+                            </video>
+                            <div>APG</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide fade">
+                <div>SoftJumper</div>
+                <div class="slide-content">
+                    <div class="column">
+                        <div class="comparison-video">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                                <source src="assets/videos/sapo_softjumper.mp4" type="video/mp4">
+                            </video>
+                            <div>SAPO (ours)</div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="comparison-video">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                                <source src="assets/videos/sapo_softjumper.mp4" type="video/mp4">
+                            </video>
+                            <div>SAC</div>
+                        </div>
+                        <div class="comparison-video">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                                <source src="assets/videos/sapo_softjumper.mp4" type="video/mp4">
+                            </video>
+                            <div>SHAC</div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="comparison-video">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                                <source src="assets/videos/sapo_softjumper.mp4" type="video/mp4">
+                            </video>
+                            <div>PPO</div>
+                        </div>
+                        <div class="comparison-video">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                                <source src="assets/videos/sapo_softjumper.mp4" type="video/mp4">
+                            </video>
+                            <div>APG</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide fade">
+                <div>HandFlip</div>
+                <div class="slide-content">
+                    <div class="column">
+                        <div class="comparison-video">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                                <source src="assets/videos/sapo_handflip.mp4" type="video/mp4">
+                            </video>
+                            <div>SAPO (ours)</div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="comparison-video">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                                <source src="assets/videos/sapo_handflip.mp4" type="video/mp4">
+                            </video>
+                            <div>SAC</div>
+                        </div>
+                        <div class="comparison-video">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                                <source src="assets/videos/sapo_handflip.mp4" type="video/mp4">
+                            </video>
+                            <div>SHAC</div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="comparison-video">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                                <source src="assets/videos/sapo_handflip.mp4" type="video/mp4">
+                            </video>
+                            <div>PPO</div>
+                        </div>
+                        <div class="comparison-video">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                                <source src="assets/videos/sapo_handflip.mp4" type="video/mp4">
+                            </video>
+                            <div>APG</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide fade">
+                <div>FluidTransport</div>
+                <div class="slide-content">
+                    <div class="column">
+                        <div class="comparison-video">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                                <source src="assets/videos/sapo_fluidtransport.mp4" type="video/mp4">
+                            </video>
+                            <div>SAPO (ours)</div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="comparison-video">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                                <source src="assets/videos/sapo_fluidtransport.mp4" type="video/mp4">
+                            </video>
+                            <div>SAC</div>
+                        </div>
+                        <div class="comparison-video">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                                <source src="assets/videos/sapo_fluidtransport.mp4" type="video/mp4">
+                            </video>
+                            <div>SHAC</div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="comparison-video">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                                <source src="assets/videos/sapo_fluidtransport.mp4" type="video/mp4">
+                            </video>
+                            <div>PPO</div>
+                        </div>
+                        <div class="comparison-video">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                                <source src="assets/videos/sapo_fluidtransport.mp4" type="video/mp4">
+                            </video>
+                            <div>APG</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Next and previous buttons -->
+            <a class="prev" onclick="plusSlides(-1)">❮</a>
+            <a class="next" onclick="plusSlides(1)">❯</a>
+        </div>
+
+        <div style="text-align:center">
+            <span class="dot active" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+            <span class="dot" onclick="currentSlide(5)"></span>
+            <span class="dot" onclick="currentSlide(6)"></span>
+        </div>
+
+        <div class="caption">
+            <b>Figure.</b> Visualizations of trajectories from different algorithms in Rewarped tasks.
         </div>
 
         <br /> 
@@ -384,8 +834,8 @@
             <pre class="codebox-pre"><code>@article{xing2024stabilizing,
     title={Stabilizing Reinforcement Learning in Differentiable Multiphysics Simulation},
     author={Eliot Xing and Vernon Luk and Jean Oh},
-    journal={arXiv preprint arXiv:2412.12089},
-    year={2024}
+    journal={International Conference on Learning Representations (ICLR)},
+    year={2025}
 }</code></pre>
         </div>
     </div>
@@ -393,10 +843,47 @@
     <hr>
     <footer>
         <div style="font-size: 1.4rem;">
-            Copyright &copy; 2024 Eliot Xing.
+            Copyright &copy; 2025 Eliot Xing.
+            <br />
+            <i>This website's source code is just a single file, feel free to borrow it.</i>
         </div>
     </footer>
 </div>
 </body>
+
+<script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    // Next/previous controls
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    // Thumbnail image controls
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("slide");
+        let dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {
+            slideIndex = 1
+        }
+        if (n < 1) {
+            slideIndex = slides.length
+        }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+    }
+</script>
 
 </html>
