@@ -76,6 +76,10 @@
             display: block;
         }
 
+        br {
+            user-select: none;
+        }
+
         .container {
             max-width: 800px;
             min-width: 320px;
@@ -152,7 +156,7 @@
             border: 0;
             width: 125%;
             margin-left: -12.5%;
-            height: 1.5px;
+            height: 1.75px;
             background-image: linear-gradient(to right,
                 rgba(0, 0, 0, 0),
                 rgba(187, 187, 187, 0.2),
@@ -210,6 +214,7 @@
             gap: 0.5em 1em;
             flex-wrap: wrap;
             vertical-align: baseline;
+            user-select: none;
         }
 
         .codebox-pre {
@@ -262,10 +267,9 @@
             margin-left: 42px; 
         }
 
-        .slide > div {
+        .slide > h3 {
             text-align: center;
-            font-weight: 200;
-            font-size: 2.0rem;
+            font-size: 1.4em;
             font-family: "KaTeX_SansSerif", var(--systemfont);
         }
 
@@ -276,14 +280,14 @@
         }
 
         .comparison-video {
-            margin-left: 1%;
-            margin-right: 1%;
-            margin-bottom: 8%
+            margin-left: 0.25rem;
+            margin-right: 0.25rem;
+            margin-bottom: 2.0rem;
         }
 
         .comparison-video > div {
-            font-weight: 500;
-            font-size: 1.5rem;
+            text-align: center;
+            font-size: 1.2em;
             font-family: "KaTeX_SansSerif", var(--systemfont);
         }
 
@@ -291,15 +295,17 @@
         .prev, .next {
             cursor: pointer;
             position: absolute;
-            top: 50%;
-            width: auto;
-            margin-top: -22px;
-            padding: 16px;
+            top: 47.5%;
+            width: 2rem;
+            height: 2rem;
+            padding: 1rem;
             color: black;
             font-weight: bold;
-            font-size: 18px;
             transition: 0.6s ease;
             user-select: none;
+            justify-content: center;
+            align-items: center;
+            display: flex;
         }
 
         /* Position the "next button" to the right */
@@ -313,6 +319,7 @@
 
         /* On hover, add a black background color with a little bit see-through */
         .prev:hover, .next:hover {
+            border-radius: 9999px;
             background-color: rgba(0, 0, 0, 0.8);
             color: white;
             background-size: 0%;
@@ -368,7 +375,11 @@
         <div class="site-name">
             Stabilizing Reinforcement Learning in Differentiable Multiphysics Simulation
         </div>
-        <hr>
+        <br />
+        <div style="text-align: center; font-size: 1.25em;">
+            ICLR 2025 <span style="color: var(--green);">(Spotlight)</span>
+        </div>
+        <br />
     </header>
 
     <div style="text-align: center;" class="about-container">
@@ -379,7 +390,6 @@
             <div style="width: 1em; display: inline-block"></div>
             <a href="https://www.cs.cmu.edu/~./jeanoh/" target="_blank">Jean Oh</a>
         </div>
-        <br />
         <div>
             Carnegie Mellon University
         </div>
@@ -427,10 +437,13 @@
         </div>
 
         <br />
+        <hr>
+        <br />
+
         <div>
             <b>TL;DR</b>
             <i>
-            We present a maximum entropy first-order model-based RL algorithm, alongside 
+            We present a maximum entropy first-order RL algorithm, alongside 
             a parallel differentiable multiphysics simulation platform for RL that supports 
             simulating various materials beyond just rigid bodies. 
             </i>
@@ -442,37 +455,37 @@
             <br /><br />
             <div class="task-video">
                 <div>AntRun</div>
-                <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                <video width="100%" autoplay="" loop="" muted="" playsinline="" webkit-playsinline="" preload="none">
                     <source src="assets/videos/sapo_ant.mp4" type="video/mp4">
                 </video>
             </div>
             <div class="task-video">
                 <div>HandReorient</div>
-                <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                <video width="100%" autoplay="" loop="" muted="" playsinline="" webkit-playsinline="" preload="none">
                     <source src="assets/videos/sapo_handreorient.mp4" type="video/mp4">
                 </video>
             </div>
             <div class="task-video">
                 <div>RollingFlat</div>
-                <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                <video width="100%" autoplay="" loop="" muted="" playsinline="" webkit-playsinline="" preload="none">
                     <source src="assets/videos/sapo_rollingflat.mp4" type="video/mp4">
                 </video>
             </div>
             <div class="task-video">
                 <div>SoftJumper</div>
-                <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                <video width="100%" autoplay="" loop="" muted="" playsinline="" webkit-playsinline="" preload="none">
                     <source src="assets/videos/sapo_softjumper.mp4" type="video/mp4">
                 </video>
             </div>
             <div class="task-video">
                 <div>HandFlip</div>
-                <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                <video width="100%" autoplay="" loop="" muted="" playsinline="" webkit-playsinline="" preload="none">
                     <source src="assets/videos/sapo_handflip.mp4" type="video/mp4">
                 </video>
             </div>
             <div class="task-video">
                 <div>FluidMove</div>
-                <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                <video width="100%" autoplay="" loop="" muted="" playsinline="" webkit-playsinline="" preload="none">
                     <source src="assets/videos/sapo_fluidtransport.mp4" type="video/mp4">
                 </video>
             </div>
@@ -482,9 +495,13 @@
         </div>
     </div>
 
-        <h2>Soft Analytic Policy Optimization (SAPO)</h2>
+        <h1>Soft Analytic Policy Optimization (SAPO)</h1>
         <div>
-            We observe that existing FO-MBRL algorithms are prone to suboptimal convergence to local minima in the reward landscape. We draw on the maximum entropy RL framework to formulate Soft Analytic Policy Optimization (SAPO), a maximum entropy FO-MBRL algorithm. 
+            We observe that existing first-order RL algorithms are prone to suboptimal convergence to local minima in 
+            the reward landscape. We draw on the maximum entropy RL framework to formulate 
+            Soft Analytic Policy Optimization (SAPO), a maximum entropy first-order RL algorithm. SAPO uses
+            first-order analytic gradients from differentiable simulation to train a 
+            stochastic actor to maximize expected return and entropy.
         </div>
 
         <div class="slide-content">
@@ -498,7 +515,7 @@
             </div>
             <div class="column">
                 <img src="assets/images/surface_ant_SAPO.png">
-                <div class="alg-caption">SAPO</div>
+                <div class="alg-caption">SAPO (ours)</div>
             </div>
         </div>
 
@@ -519,7 +536,7 @@
             </div>
             <div class="column">
                 <img src="assets/images/surface_flip_SAPO.png">
-                <div class="alg-caption">SAPO</div>
+                <div class="alg-caption">SAPO (ours)</div>
             </div>
         </div>
 
@@ -533,40 +550,41 @@
             <img src="assets/images/sapo_diagram.png">
         </div>
         <div class="caption">
-            <b>Figure.</b> Computation graph of Soft Analytic Policy Optimization
+            <b>Figure.</b> Computational graph of SAPO.
         </div>
 
-        <h2>Rewarped</h2>
+        <h1>Rewarped</h1>
         <div>
-            We introduce Rewarped, a parallel differentiable multiphysics simulation platform that provides GPU-accelerated parallel environments for RL and enables computing batched simulation gradients efficiently.
+            We introduce <a href="https://github.com/rewarped/rewarped" target="_blank">Rewarped</a>, a parallel differentiable multiphysics simulation platform that provides GPU-accelerated parallel environments for RL and enables computing batched simulation gradients efficiently.
         </div>
 
         <br/>
 
         <div>
-            We implement all simulation code in NVIDIA Warp, a library for differentiable programming that converts Python code into CUDA kernels by runtime JIT compilation. We use gradient checkpointing and CUDA graphs to reduce memory requirements and compute batched simulation gradients over multiple time steps efficiently.
+            We implement all simulation code in <a href="https://github.com/nvidia/warp" target="_blank">NVIDIA Warp</a>, a library for differentiable programming that converts Python code into CUDA kernels by runtime JIT compilation. We use gradient checkpointing and CUDA graphs to reduce memory requirements and compute batched simulation gradients over multiple time steps efficiently.
         </div>
-
-
-
-
 
         <h2>Results</h2>
         <div>
             <img src="assets/images/rewarped_train.png">
         </div>
+        <br />
+        <div class="caption">
+            <b>Figure.</b> Rewarped tasks training curves.
+        </div>
+
         <br/>
         <div>
-            We compare SAPO, our proposed maximum entropy FO-MBRL algorithm, against baselines on a range of challenging manipulation and locomotion tasks that involve rigid and soft bodies. SAPO shows better training stability across different random seeds, against existing FO-MBRL algorithms APG and SHAC.
+            We compare SAPO, our proposed maximum entropy first-order RL algorithm, against baselines on a range of challenging manipulation and locomotion tasks that involve rigid and soft bodies. SAPO shows (i) more stable training across different random seeds, (ii) improved sample efficiency, and (iii) achieves higher task performance overall.
         </div>
 
         <div class="slideshow-container">
             <div class="slide fade">
-                <div>AntRun</div>
+                <h3>AntRun</h3>
                 <div class="slide-content">
                     <div class="column">
                         <div class="comparison-video">
-                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="" webkit-playsinline="" preload="none">
                                 <source src="assets/videos/ant_sapo.mp4" type="video/mp4">
                             </video>
                             <div>SAPO (ours)</div>
@@ -574,13 +592,13 @@
                     </div>
                     <div class="column">
                         <div class="comparison-video">
-                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="" webkit-playsinline="" preload="none">
                                 <source src="assets/videos/ant_sac.mp4" type="video/mp4">
                             </video>
                             <div>SAC</div>
                         </div>
                         <div class="comparison-video">
-                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="" webkit-playsinline="" preload="none">
                                 <source src="assets/videos/ant_shac.mp4" type="video/mp4">
                             </video>
                             <div>SHAC</div>
@@ -588,13 +606,13 @@
                     </div>
                     <div class="column">
                         <div class="comparison-video">
-                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="" webkit-playsinline="" preload="none">
                                 <source src="assets/videos/ant_ppo.mp4" type="video/mp4">
                             </video>
                             <div>PPO</div>
                         </div>
                         <div class="comparison-video">
-                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="" webkit-playsinline="" preload="none">
                                 <source src="assets/videos/ant_apg.mp4" type="video/mp4">
                             </video>
                             <div>APG</div>
@@ -604,11 +622,11 @@
             </div>
 
             <div class="slide fade">
-                <div>HandReorient</div>
+                <h3>HandReorient</h3>
                 <div class="slide-content">
                     <div class="column">
                         <div class="comparison-video">
-                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="" webkit-playsinline="" preload="none">
                                 <source src="assets/videos/allegro_sapo.mp4" type="video/mp4">
                             </video>
                             <div>SAPO (ours)</div>
@@ -616,13 +634,13 @@
                     </div>
                     <div class="column">
                         <div class="comparison-video">
-                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="" webkit-playsinline="" preload="none">
                                 <source src="assets/videos/allegro_sac.mp4" type="video/mp4">
                             </video>
                             <div>SAC</div>
                         </div>
                         <div class="comparison-video">
-                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="" webkit-playsinline="" preload="none">
                                 <source src="assets/videos/allegro_shac.mp4" type="video/mp4">
                             </video>
                             <div>SHAC</div>
@@ -630,13 +648,13 @@
                     </div>
                     <div class="column">
                         <div class="comparison-video">
-                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="" webkit-playsinline="" preload="none">
                                 <source src="assets/videos/allegro_ppo.mp4" type="video/mp4">
                             </video>
                             <div>PPO</div>
                         </div>
                         <div class="comparison-video">
-                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="" webkit-playsinline="" preload="none">
                                 <source src="assets/videos/allegro_apg.mp4" type="video/mp4">
                             </video>
                             <div>APG</div>
@@ -646,11 +664,11 @@
             </div>
 
             <div class="slide fade">
-                <div>RollingFlat</div>
+                <h3>RollingFlat</h3>
                 <div class="slide-content">
                     <div class="column">
                         <div class="comparison-video">
-                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="" webkit-playsinline="" preload="none">
                                 <source src="assets/videos/rollingpin_sapo.mp4" type="video/mp4">
                             </video>
                             <div>SAPO (ours)</div>
@@ -658,13 +676,13 @@
                     </div>
                     <div class="column">
                         <div class="comparison-video">
-                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="" webkit-playsinline="" preload="none">
                                 <source src="assets/videos/rollingpin_sac.mp4" type="video/mp4">
                             </video>
                             <div>SAC</div>
                         </div>
                         <div class="comparison-video">
-                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="" webkit-playsinline="" preload="none">
                                 <source src="assets/videos/rollingpin_shac.mp4" type="video/mp4">
                             </video>
                             <div>SHAC</div>
@@ -672,13 +690,13 @@
                     </div>
                     <div class="column">
                         <div class="comparison-video">
-                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="" webkit-playsinline="" preload="none">
                                 <source src="assets/videos/rollingpin_ppo.mp4" type="video/mp4">
                             </video>
                             <div>PPO</div>
                         </div>
                         <div class="comparison-video">
-                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="" webkit-playsinline="" preload="none">
                                 <source src="assets/videos/rollingpin_apg.mp4" type="video/mp4">
                             </video>
                             <div>APG</div>
@@ -688,11 +706,11 @@
             </div>
 
             <div class="slide fade">
-                <div>SoftJumper</div>
+                <h3>SoftJumper</h3>
                 <div class="slide-content">
                     <div class="column">
                         <div class="comparison-video">
-                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="" webkit-playsinline="" preload="none">
                                 <source src="assets/videos/jumper_sapo.mp4" type="video/mp4">
                             </video>
                             <div>SAPO (ours)</div>
@@ -700,13 +718,13 @@
                     </div>
                     <div class="column">
                         <div class="comparison-video">
-                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="" webkit-playsinline="" preload="none">
                                 <source src="assets/videos/jumper_sac.mp4" type="video/mp4">
                             </video>
                             <div>SAC</div>
                         </div>
                         <div class="comparison-video">
-                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="" webkit-playsinline="" preload="none">
                                 <source src="assets/videos/jumper_shac.mp4" type="video/mp4">
                             </video>
                             <div>SHAC</div>
@@ -714,13 +732,13 @@
                     </div>
                     <div class="column">
                         <div class="comparison-video">
-                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="" webkit-playsinline="" preload="none">
                                 <source src="assets/videos/jumper_ppo.mp4" type="video/mp4">
                             </video>
                             <div>PPO</div>
                         </div>
                         <div class="comparison-video">
-                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="" webkit-playsinline="" preload="none">
                                 <source src="assets/videos/jumper_apg.mp4" type="video/mp4">
                             </video>
                             <div>APG</div>
@@ -730,11 +748,11 @@
             </div>
 
             <div class="slide fade">
-                <div>HandFlip</div>
+                <h3>HandFlip</h3>
                 <div class="slide-content">
                     <div class="column">
                         <div class="comparison-video">
-                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="" webkit-playsinline="" preload="none">
                                 <source src="assets/videos/flip_sapo.mp4" type="video/mp4">
                             </video>
                             <div>SAPO (ours)</div>
@@ -742,13 +760,13 @@
                     </div>
                     <div class="column">
                         <div class="comparison-video">
-                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="" webkit-playsinline="" preload="none">
                                 <source src="assets/videos/flip_sac.mp4" type="video/mp4">
                             </video>
                             <div>SAC</div>
                         </div>
                         <div class="comparison-video">
-                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="" webkit-playsinline="" preload="none">
                                 <source src="assets/videos/flip_shac.mp4" type="video/mp4">
                             </video>
                             <div>SHAC</div>
@@ -756,13 +774,13 @@
                     </div>
                     <div class="column">
                         <div class="comparison-video">
-                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="" webkit-playsinline="" preload="none">
                                 <source src="assets/videos/flip_ppo.mp4" type="video/mp4">
                             </video>
                             <div>PPO</div>
                         </div>
                         <div class="comparison-video">
-                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="" webkit-playsinline="" preload="none">
                                 <source src="assets/videos/flip_apg.mp4" type="video/mp4">
                             </video>
                             <div>APG</div>
@@ -772,11 +790,11 @@
             </div>
 
             <div class="slide fade">
-                <div>FluidMove</div>
+                <h3>FluidMove</h3>
                 <div class="slide-content">
                     <div class="column">
                         <div class="comparison-video">
-                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="" webkit-playsinline="" preload="none">
                                 <source src="assets/videos/fluid_sapo.mp4" type="video/mp4">
                             </video>
                             <div>SAPO (ours)</div>
@@ -784,13 +802,13 @@
                     </div>
                     <div class="column">
                         <div class="comparison-video">
-                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="" webkit-playsinline="" preload="none">
                                 <source src="assets/videos/fluid_sac.mp4" type="video/mp4">
                             </video>
                             <div>SAC</div>
                         </div>
                         <div class="comparison-video">
-                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="" webkit-playsinline="" preload="none">
                                 <source src="assets/videos/fluid_shac.mp4" type="video/mp4">
                             </video>
                             <div>SHAC</div>
@@ -798,13 +816,13 @@
                     </div>
                     <div class="column">
                         <div class="comparison-video">
-                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="" webkit-playsinline="" preload="none">
                                 <source src="assets/videos/fluid_ppo.mp4" type="video/mp4">
                             </video>
                             <div>PPO</div>
                         </div>
                         <div class="comparison-video">
-                            <video width="100%" autoplay="" loop="" muted="" playsinline="">
+                            <video width="100%" autoplay="" loop="" muted="" playsinline="" webkit-playsinline="" preload="none">
                                 <source src="assets/videos/fluid_apg.mp4" type="video/mp4">
                             </video>
                             <div>APG</div>
@@ -818,7 +836,7 @@
             <a class="next" onclick="plusSlides(1)">❯</a>
         </div>
 
-        <div style="text-align:center">
+        <div style="text-align: center; margin-bottom: 2rem; user-select: none;">
             <span class="dot active" onclick="currentSlide(1)"></span>
             <span class="dot" onclick="currentSlide(2)"></span>
             <span class="dot" onclick="currentSlide(3)"></span>
@@ -841,21 +859,25 @@
     year={2025}
 }</code></pre>
         </div>
-    </div>
 
+    <br />
     <hr>
     <footer>
         <div style="font-size: 1.4rem;">
             Copyright &copy; 2025 Eliot Xing.
             <br />
             <i>This website's source code is just a single file, feel free to borrow it.</i>
+            <br />
+            <br />
         </div>
     </footer>
+
+    </div>
 </div>
 </body>
 
 <script>
-    let slideIndex = 1;
+    let slideIndex = 5;
     showSlides(slideIndex);
 
     // Next/previous controls
